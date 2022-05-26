@@ -51,4 +51,42 @@ button.onclick = function(){
         behavior:"smooth",
     });
 };
+// setarting pop section
+let iconl = document.getElementById("left");
+let iconr = document.getElementById("right");
+let layout = document.getElementById("layout");
+let pop = document.getElementById("pop");
+let clicks = document.querySelectorAll(".store .content >div img");
+let needdimgs=[];
+for (i = 0 ; i<lis.length;i++){
+    lis[i].addEventListener("click" , function(){
+   needdimgs = document.querySelectorAll(`.store .content ${this.dataset.cat} img`);
+    console.log(needdimgs);
+})
+}
+
+for (i = 0 ; i<clicks.length ;i++){
+    clicks[i].addEventListener("click" , function(){
+        document.getElementById("hot").src = `${this.src}`;
+        pop.style.transform = " translate(-50% , -50%) scale(1)";
+        layout.style.zIndex = "10";
+        layout.style.opacity = "1"
+    })
+}
+
+document.querySelector(".pop .content button").addEventListener("click" , function(){
+    pop.style.transform = " translate(-50% , -50%) scale(0)";
+    layout.style.zIndex = "-1";
+    layout.style.opacity = "0"
+})
+iconl.addEventListener("click",function(){
+    document.getElementById("hot").src = `${needdimgs[Math.floor(Math.random()*needdimgs.length)].src}`;
+
+})
+iconr.addEventListener("click",function(){
+    document.getElementById("hot").src = `${needdimgs[Math.floor(Math.random()*needdimgs.length)].src}`;
+
+})
+
+
 
