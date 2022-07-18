@@ -87,6 +87,12 @@ iconr.addEventListener("click",function(){
     document.getElementById("hot").src = `${needdimgs[Math.floor(Math.random()*needdimgs.length)].src}`;
 
 })
+// starting loader section
+let loaderSection = document.querySelector("section.loader");
+window.addEventListener("load" , ()=>{
+    loaderSection.style.opacity = "0";
+    setTimeout(()=>{
+    loaderSection.style.display = "none";
 
-
-
+    },1100)
+})
